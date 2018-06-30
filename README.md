@@ -568,18 +568,18 @@ CONNECT BY RN = PRIOR RN + 1;
 ```bash
 df -k
 ```
-#####What is command to kill last background Job
+##### What is command to kill last background Job
 ```bash
 kill $!
 ```
-#####What is difference between diff and cmp command
+##### What is difference between diff and cmp command
 ```bash
 cmp -It compares two files byte by byte and displays first mismatch.
 
 diff -It displays all changes required to make files identical.
 ```
 
-#####What does $# stands for
+##### What does $# stands for
 ```text
 It will return the number of parameters passed as command line argument.Unix Commands
 ```
