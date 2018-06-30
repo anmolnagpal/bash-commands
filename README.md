@@ -307,96 +307,97 @@ ls -l | grep '^-' | awk '/^-/ {if ($5 !=0 ) print $9 }'
 sed 's/bat/ball/2' < filename
 ```
 59. How to remove all the occurrences of the word "jhon" except the first one in a line with in the entire file?
-
+```bash
 sed 's/jhon//2g' < filename
-
+```
 60. How to replace the word "lite" with "light" from 100th line to last line in a file?
-
+```bash
 sed '100,$ s/lite/light/' < filename
-
+```
 61. How to list the files that are accessed 5 days ago in the current directory?
-
+```bash
 find -atime 5 -type f
-
+```
 62. How to list the files that were modified 5 days ago in the current directory?
-
+```bash
 find -mtime 5 -type f
-
+```
 63. How to list the files whose status is changed 5 days ago in the current directory?
-
+```bash
 find -ctime 5 -type f
-
+```
 64. How to replace the character '/' with ',' in a file?
-
+```bash
 sed 's/\//,/' < filename
 
 sed 's|/|,|' < filename
-
+```
 65. Write a command to find the number of files in a directory.
-
+```bash
 ls -l|grep '^-'|wc -l
-
+```
 66. Write a command to display your name 100 times.
 
-The Yes utility can be used to repeatedly output a line with the specified string or 'y'.
-
+-   The Yes utility can be used to repeatedly output a line with the specified string or 'y'.
+```bash
 yes <your_name> | head -100
-
+```
 67. Write a command to display the first 10 characters from each line of a file?
-
+```bash
 cut -c -10 filename
-
+```
 68. The fields in each line are delimited by comma. Write a command to display third field from each line of a file?
-
+```bash
 cut -d',' -f2 filename
-
+```
 69. Write a command to print the fields from 10 to 20 from each line of a file?
-
+```bash
 cut -d',' -f10-20 filename
-
+```
 70. Write a command to print the first 5 fields from each line?
-
+```bash
 cut -d',' -f-5 filename
-
+```
 71. By default the cut command displays the entire line if there is no delimiter in it. Which cut option is used to supress these kind of lines?
 
-The -s option is used to supress the lines that do not contain the delimiter.
+The ```bash-s``` option is used to supress the lines that do not contain the delimiter.
 
 72. Write a command to replace the word "bad" with "good" in file?
-
+```bash
 sed s/bad/good/ < filename
-
+```
 73. Write a command to replace the word "bad" with "good" globally in a file?
-
+```bash
 sed s/bad/good/g < filename
-
+```
 74. Write a command to replace the word "apple" with "(apple)" in a file?
-
+```bash
 sed s/apple/(&)/ < filename
-
+```
 75. Write a command to switch the two consecutive words "apple" and "mango" in a file?
-
+```bash
 sed 's/\(apple\) \(mango\)/\2 \1/' < filename
-
+```
 76. Write a command to display the characters from 10 to 20 from each line of a file?
-
+```bash
 cut -c 10-20 filename
-
+```
 77. Write a command to print the lines that has the the pattern "july" in all the files in a particular directory?
-
+```bash
 grep july *
-
-This will print all the lines in all files that contain the word “july” along with the file name. If any of the files contain words like "JULY" or "July", the above command would not print those lines.
+```
+-   This will print all the lines in all files that contain the word “july” along with the file name. If any of the 
+files contain words like "JULY" or "July", the above command would not print those lines.
 
 78. Write a command to print the lines that has the word "july" in all the files in a directory and also suppress the filename in the output.
-
+```bash
 grep -h july *
-
+```
 79. Write a command to print the lines that has the word "july" while ignoring the case.
-
+```bash
 grep -i july *
-
-The option i make the grep command to treat the pattern as case insensitive.
+```
+-   The option i make the grep command to treat the pattern as case insensitive.
 
 80. When you use a single file as input to the grep command to search for a pattern, it won't print the filename in the output. Now write a grep command to print the filename in the output without using the '-H' option.
 
