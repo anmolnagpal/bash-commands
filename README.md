@@ -278,19 +278,19 @@ grep -v RAM filename
 ```
 -   The '-v' option tells the grep to print the lines that do not contain the specified pattern.
 
-53. How to print the squares of numbers from 1 to 10 using awk command
+##### How to print the squares of numbers from 1 to 10 using awk command
 ```bash
 awk 'BEGIN { for(i=1;i<=10;i++) {print "square of",i,"is",i*i;}}'
 ```
-54. Write a command to display the files in the directory by file size?
+##### Write a command to display the files in the directory by file size?
 ```bash
 ls -l | grep '^-' |sort -nr -k 5
 ```
-55. How to find out the usage of the CPU by the processes?
+##### How to find out the usage of the CPU by the processes?
 
 The ```bash top ``` bash utility can be used to display the CPU usage by the processes.
 
-56. Write a command to remove the prefix of the string ending with '/'.
+##### Write a command to remove the prefix of the string ending with '/'.
 
 -   The basename utility deletes any prefix ending in /. The usage is mentioned below:
 ```bash
@@ -298,108 +298,108 @@ basename /usr/local/bin/file
 ```
 -   This will display only file
 
-57. How to display zero byte size files?
+##### How to display zero byte size files?
 ```bash
 ls -l | grep '^-' | awk '/^-/ {if ($5 !=0 ) print $9 }'
 ```
-58. How to replace the second occurrence of the word "bat" with "ball" in a file?
+##### How to replace the second occurrence of the word "bat" with "ball" in a file?
 ```bash
 sed 's/bat/ball/2' < filename
 ```
-59. How to remove all the occurrences of the word "jhon" except the first one in a line with in the entire file?
+##### How to remove all the occurrences of the word "jhon" except the first one in a line with in the entire file?
 ```bash
 sed 's/jhon//2g' < filename
 ```
-60. How to replace the word "lite" with "light" from 100th line to last line in a file?
+##### How to replace the word "lite" with "light" from 100th line to last line in a file?
 ```bash
 sed '100,$ s/lite/light/' < filename
 ```
-61. How to list the files that are accessed 5 days ago in the current directory?
+##### How to list the files that are accessed 5 days ago in the current directory?
 ```bash
 find -atime 5 -type f
 ```
-62. How to list the files that were modified 5 days ago in the current directory?
+##### How to list the files that were modified 5 days ago in the current directory?
 ```bash
 find -mtime 5 -type f
 ```
-63. How to list the files whose status is changed 5 days ago in the current directory?
+##### How to list the files whose status is changed 5 days ago in the current directory?
 ```bash
 find -ctime 5 -type f
 ```
-64. How to replace the character '/' with ',' in a file?
+##### How to replace the character '/' with ',' in a file?
 ```bash
 sed 's/\//,/' < filename
 
 sed 's|/|,|' < filename
 ```
-65. Write a command to find the number of files in a directory.
+##### Write a command to find the number of files in a directory.
 ```bash
 ls -l|grep '^-'|wc -l
 ```
-66. Write a command to display your name 100 times.
+##### Write a command to display your name 100 times.
 
 -   The Yes utility can be used to repeatedly output a line with the specified string or 'y'.
 ```bash
 yes <your_name> | head -100
 ```
-67. Write a command to display the first 10 characters from each line of a file?
+##### Write a command to display the first 10 characters from each line of a file?
 ```bash
 cut -c -10 filename
 ```
-68. The fields in each line are delimited by comma. Write a command to display third field from each line of a file?
+##### The fields in each line are delimited by comma. Write a command to display third field from each line of a file?
 ```bash
 cut -d',' -f2 filename
 ```
-69. Write a command to print the fields from 10 to 20 from each line of a file?
+##### Write a command to print the fields from 10 to 20 from each line of a file?
 ```bash
 cut -d',' -f10-20 filename
 ```
-70. Write a command to print the first 5 fields from each line?
+##### Write a command to print the first 5 fields from each line?
 ```bash
 cut -d',' -f-5 filename
 ```
-71. By default the cut command displays the entire line if there is no delimiter in it. Which cut option is used to supress these kind of lines?
+##### By default the cut command displays the entire line if there is no delimiter in it. Which cut option is used to supress these kind of lines?
 
 The ```bash-s``` option is used to supress the lines that do not contain the delimiter.
 
-72. Write a command to replace the word "bad" with "good" in file?
+##### Write a command to replace the word "bad" with "good" in file?
 ```bash
 sed s/bad/good/ < filename
 ```
-73. Write a command to replace the word "bad" with "good" globally in a file?
+##### Write a command to replace the word "bad" with "good" globally in a file?
 ```bash
 sed s/bad/good/g < filename
 ```
-74. Write a command to replace the word "apple" with "(apple)" in a file?
+##### Write a command to replace the word "apple" with "(apple)" in a file?
 ```bash
 sed s/apple/(&)/ < filename
 ```
-75. Write a command to switch the two consecutive words "apple" and "mango" in a file?
+##### Write a command to switch the two consecutive words "apple" and "mango" in a file?
 ```bash
 sed 's/\(apple\) \(mango\)/\2 \1/' < filename
 ```
-76. Write a command to display the characters from 10 to 20 from each line of a file?
+##### Write a command to display the characters from 10 to 20 from each line of a file?
 ```bash
 cut -c 10-20 filename
 ```
-77. Write a command to print the lines that has the the pattern "july" in all the files in a particular directory?
+##### Write a command to print the lines that has the the pattern "july" in all the files in a particular directory?
 ```bash
 grep july *
 ```
 -   This will print all the lines in all files that contain the word “july” along with the file name. If any of the 
 files contain words like "JULY" or "July", the above command would not print those lines.
 
-78. Write a command to print the lines that has the word "july" in all the files in a directory and also suppress the filename in the output.
+##### Write a command to print the lines that has the word "july" in all the files in a directory and also suppress the filename in the output.
 ```bash
 grep -h july *
 ```
-79. Write a command to print the lines that has the word "july" while ignoring the case.
+##### Write a command to print the lines that has the word "july" while ignoring the case.
 ```bash
 grep -i july *
 ```
 -   The option i make the grep command to treat the pattern as case insensitive.
 
-80. When you use a single file as input to the grep command to search for a pattern, it won't print the filename in the output. Now write a grep command to print the filename in the output without using the '-H' option.
+##### When you use a single file as input to the grep command to search for a pattern, it won't print the filename in the output. Now write a grep command to print the filename in the output without using the '-H' option.
 ```bash
 grep pattern filename /dev/null
 ```
@@ -410,38 +410,38 @@ empty file.
 ```bash
 grep -H pattern filename
 ```
-81. Write a command to print the file names in a directory that does not contain the word "july"?
+##### Write a command to print the file names in a directory that does not contain the word "july"?
 ```bash
 grep -L july *
 ```
 -   The ``` bash'-L' ``` option makes the grep command to print the filenames that do not contain the specified 
 pattern.
 
-82. Write a command to print the line numbers along with the line that has the word "july"?
+##### Write a command to print the line numbers along with the line that has the word "july"?
 ```bash
 grep -n july filename
 ```
 The ```bash'-n'``` option is used to print the line numbers in a file. The line numbers start from 1
 
-83. Write a command to print the lines that starts with the word "start"?
+##### Write a command to print the lines that starts with the word "start"?
 ```bash
 grep '^start' filename
 ```
 The ```bash'^'``` symbol specifies the grep command to search for the pattern at the start of the line.
 
-84. In the text file, some lines are delimited by colon and some are delimited by space. Write a command to print the third field of each line.
+##### In the text file, some lines are delimited by colon and some are delimited by space. Write a command to print the third field of each line.
 ```bash
 awk '{ if( $0 ~ /:/ ) { FS=":"; } else { FS =" "; } print $3 }' filename
 ```
-85. Write a command to print the line number before each line?
+##### Write a command to print the line number before each line?
 ```bash
 awk '{print NR, $0}' filename
 ```
-86. Write a command to print the second and third line of a file without using NR.
+##### Write a command to print the second and third line of a file without using NR.
 ```bash
 awk 'BEGIN {RS="";FS="\n"} {print $2,$3}' filename
 ```
-87. How to create an alias for the complex command and remove the alias?
+##### How to create an alias for the complex command and remove the alias?
 
 -   The alias utility is used to create the alias for a command. The below command creates alias for ps -aef command.
 ```bash
@@ -453,13 +453,13 @@ alias pg='ps -aef'
 ```bash
 unalias pg
 ```
-88. Write a command to display todays date in the format of 'yyyy-mm-dd'?
+##### Write a command to display todays date in the format of 'yyyy-mm-dd'?
 
 -   The date command can be used to display todays date with time
 ```bash
 date '+%Y-%m-%d'
 ```
-89.For LOOP
+##### For LOOP
 
 1. Rename all ".old" files in the current directory to ".bak":
 ```bash
@@ -484,69 +484,69 @@ else
 echo "file $i cannot be open for reading."      
 fi  done
 ```
-How to print/display the first line of a file?
+##### How to print/display the first line of a file?
 ```bash
-$> head -1 file.txt
+ head -1 file.txt
 
-$> sed '2,$ d' file.txt
+ sed '2,$ d' file.txt
 ```
-How to print/display the last line of a file?
+##### How to print/display the last line of a file?
 ```bash
-$> tail -1 file.txt
+ tail -1 file.txt
 
-$> sed -n '$ p' test
+ sed -n '$ p' test
 ```
-How to display n-th line of a file?
+##### How to display n-th line of a file?
 ```bash
-$> sed –n '<n> p' file.txt
+ sed –n '<n> p' file.txt
 
-$> sed –n '4 p' test
+ sed –n '4 p' test
 
-$> head -<n> file.txt | tail -1
+ head -<n> file.txt | tail -1
 
-$> head -4 file.txt | tail -1
+ head -4 file.txt | tail -1
 ```
-How to remove the first line / header from a file?
+##### How to remove the first line / header from a file?
 ```bash
-$> sed '1 d' file.txt
+ sed '1 d' file.txt
 
-$> sed '1 d' file.txt > new_file.txt
+ sed '1 d' file.txt > new_file.txt
 
-$> mv new_file.txt file.txt
+ mv new_file.txt file.txt
 
-$> sed –i '1 d' file.txt
+ sed –i '1 d' file.txt
 ```
-How to remove the last line/ trailer from a file in Unix script?
+##### How to remove the last line/ trailer from a file in Unix script?
 ```bash
-$> sed –i '$ d' file.txt
+sed –i '$ d' file.txt
 ```
-How to remove certain lines from a file in Unix?
+##### How to remove certain lines from a file in Unix?
 ```bash
-$> sed –i '5,7 d' file.txt
+ sed –i '5,7 d' file.txt
 ```
-How to remove the last n-th line from a file?
+##### How to remove the last n-th line from a file?
 ```bash
-$> sed –i '96,100 d' file.txt   # alternative to command [head -95 file.txt]
+ sed –i '96,100 d' file.txt   # alternative to command [head -95 file.txt]
 
-$> tt=`wc -l file.txt | cut -f1 -d' '`;sed –i "`expr $tt - 4`,$tt d" test
+ tt=`wc -l file.txt | cut -f1 -d' '`;sed –i "`expr $tt - 4`,$tt d" test
 ```
-How to check the length of any line in a file?
+##### How to check the length of any line in a file?
 ```bash
-$> sed –n '<n> p' file.txt
+ sed –n '<n> p' file.txt
 
-$> sed –n '35 p' file.txt | wc –c
+ sed –n '35 p' file.txt | wc –c
 ```
-How to check if a file is present in a particular directory in Unix?
+##### How to check if a file is present in a particular directory in Unix?
 ```bash
-$> ls –l file.txt; echo $?
+ ls –l file.txt; echo $?
 ```
-How to check all the running processes in Unix?
+##### How to check all the running processes in Unix?
 ```bash
-$> ps –ef
+ ps –ef
 
-$> ps aux
+ ps aux
 
-$>ps -e -o stime,user,pid,args,%mem,%cpu
+ps -e -o stime,user,pid,args,%mem,%cpu
 
 Combine multiple Rows to a Column – Oracle
 
