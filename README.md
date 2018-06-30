@@ -221,90 +221,91 @@ grep 'end$' filename
 ```bash
 grep -w july filename
 ```
-The '-w' option makes the grep command to search for exact whole words. If the specified pattern is found in a string, then it is not considered as a whole word. For example: In the string "mikejulymak", the pattern "july" is found. However "july" is not a whole word in that string.
+-   The '-w' option makes the grep command to search for exact whole words. If the specified pattern is found in a 
+string, then it is not considered as a whole word. For example: In the string "mikejulymak", the pattern "july" is found. However "july" is not a whole word in that string.
 
 41. How to remove the first 10 lines from a file?
-
+```bash
 sed '1,10 d' < filename
-
+```
 42. Write a command to duplicate each line in a file?
-
+```bash
 sed 'p' < filename
-
+```
 43. How to extract the username from 'who am i' comamnd?
-
+```bash
 who am i | cut -f1 -d' '
-
+```
 44. Write a command to list the files in '/usr' directory that start with 'ch' and then display the number of lines in each file?
-
+```bash
 wc -l /usr/ch*
-
-Another way is
-
+```
+-   Another way is
+```bash
 find /usr -name 'ch*' -type f -exec wc -l {} \;
-
+```
 45. How to remove blank lines in a file ?
-
+```bash
 grep -v ‘^$’ filename > new_filename
-
+```
 46. How to display the processes that were run by your user name ?
-
+```bash
 ps -aef | grep <user_name>
-
+```
 47. Write a command to display all the files recursively with path under current directory?
-
+```bash
 find . -depth -print
-
+```
 48. Display zero byte size files in the current directory?
-
+```bash
 find -size 0 -type f
-
+```
 49. Write a command to display the third and fifth character from each line of a file?
-
+```bash
 cut -c 3,5 filename
-
+```
 50. Write a command to print the fields from 10th to the end of the line. The fields in the line are delimited by a comma?
-
+```bash
 cut -d',' -f10- filename
-
+```
 51. How to replace the word "Gun" with "Pen" in the first 100 lines of a file?
-
+```bash
 sed '1,00 s/Gun/Pen/' < filename
-
+```
 52. Write a Unix command to display the lines in a file that do not contain the word "RAM"?
-
+```bash
 grep -v RAM filename
-
-The '-v' option tells the grep to print the lines that do not contain the specified pattern.
+```
+-   The '-v' option tells the grep to print the lines that do not contain the specified pattern.
 
 53. How to print the squares of numbers from 1 to 10 using awk command
-
+```bash
 awk 'BEGIN { for(i=1;i<=10;i++) {print "square of",i,"is",i*i;}}'
-
+```
 54. Write a command to display the files in the directory by file size?
-
+```bash
 ls -l | grep '^-' |sort -nr -k 5
-
+```
 55. How to find out the usage of the CPU by the processes?
 
-The top utility can be used to display the CPU usage by the processes.
+The ```bash top ``` bash utility can be used to display the CPU usage by the processes.
 
 56. Write a command to remove the prefix of the string ending with '/'.
 
-The basename utility deletes any prefix ending in /. The usage is mentioned below:
-
+-   The basename utility deletes any prefix ending in /. The usage is mentioned below:
+```bash
 basename /usr/local/bin/file
-
-This will display only file
+```
+-   This will display only file
 
 57. How to display zero byte size files?
-
+```bash
 ls -l | grep '^-' | awk '/^-/ {if ($5 !=0 ) print $9 }'
-
+```
 58. How to replace the second occurrence of the word "bat" with "ball" in a file?
-
+```bash
 sed 's/bat/ball/2' < filename
-
+```
 59. How to remove all the occurrences of the word "jhon" except the first one in a line with in the entire file?
 
 sed 's/jhon//2g' < filename
