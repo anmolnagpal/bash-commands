@@ -2,6 +2,7 @@
 
 > Learning command line tools for managing the file system in Bash or alternative shells like, Zsh, can give you more speed and control over your workflow. 
 
+### ✒ Commands
 ##### How to display the 10th line of a file?
 ```bash
 head -10 filename | tail -1
