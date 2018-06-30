@@ -1,20 +1,18 @@
-Unix Commands
-
 Commonly used UNIX Commands!!
 
-1.How to display the 10th line of a file?
+##### How to display the 10th line of a file?
 ```bash
 head -10 filename | tail -1
 ```
-2. How to remove the header from a file?
+##### How to remove the header from a file?
 ```bash
 sed -i '1 d' filename
 ```
-3. How to remove the footer from a file?
+##### How to remove the footer from a file?
 ```bash
 sed -i '$ d' filename
 ```
-4. Write a command to find the length of a line in a file?
+##### Write a command to find the length of a line in a file?
 
 The below command can be used to get a line from a file.
 ```bash
@@ -24,45 +22,45 @@ We will see how to find the length of 10th line in a file
 ```bash
 sed -n '10 p' filename|wc -c
 ```
-5. How to get the nth word of a line in Unix?
+##### How to get the nth word of a line in Unix?
 ```bash
 cut –f<n> -d' '
 ```
-6. How to reverse a string in unix?
+##### How to reverse a string in unix?
 ```bash
 echo "java" | rev
 ```
-7. How to get the last word from a line in Unix file?
+##### How to get the last word from a line in Unix file?
 ```bash
 echo "unix is good" | rev | cut -f1 -d' ' | rev
 ```
-8. How to replace the n-th line in a file with a new line in Unix?
+##### How to replace the n-th line in a file with a new line in Unix?
 ```bash
 sed -i'' '10 d' filename       # d stands for delete
 
 sed -i'' '10 i new inserted line' filename     # i stands for insert
 ```
-9. How to check if the last command was successful in Unix?
+##### How to check if the last command was successful in Unix?
 ```bash
 echo $?
 ```
-10. Write command to list all the links from a directory?
+##### Write command to list all the links from a directory?
 ```bash
 ls -lrt | grep "^l"
 ```
-11. How will you find which operating system your system is running on in UNIX?
+##### How will you find which operating system your system is running on in UNIX?
 ```bash
 uname -a
 ```
-12. Create a read-only file in your home directory?
+##### Create a read-only file in your home directory?
 ```bash
 touch file; chmod 400 file
 ```
-13. How do you see command line history in UNIX?
+##### How do you see command line history in UNIX?
 ```bash
 The 'history' command can be used to get the list of commands that we are executed.
 ```
-14. How to display the first 20 lines of a file?
+##### How to display the first 20 lines of a file?
 
 By default, the head command displays the first 10 lines from a file. If we change the option of head, then we can display as many lines as we want.
 ```bash
@@ -74,7 +72,7 @@ sed '21,$ d' filename
 ```
 -   The d option here deletes the lines from 21 to the end of the file
 
-15. Write a command to print the last line of a file?
+##### Write a command to print the last line of a file?
 
 The tail command can be used to display the last lines from a file.
 ```bash
@@ -86,29 +84,29 @@ sed -n '$ p' filename
 
 awk 'END{print $0}' filename
 ```
-16. How do you rename the files in a directory with _new as suffix?
+##### How do you rename the files in a directory with _new as suffix?
 ```bash
 ls -lrt|grep '^-'| awk '{print "mv "$9" "$9".new"}' | sh
 ```
-17. Write a command to convert a string from lower case to upper case?
+##### Write a command to convert a string from lower case to upper case?
 ```bash
 echo "apple" | tr [a-z] [A-Z]
 ```
-18. Write a command to convert a string to Initcap.
+##### Write a command to convert a string to Initcap.
 ```bash
 echo apple | awk '{print toupper(substr($1,1,1)) tolower(substr($1,2))}'
 ```
-19. Write a command to redirect the output of date command to multiple files?
+##### Write a command to redirect the output of date command to multiple files?
 
 -   The tee command writes the output to multiple files and also displays the output on the terminal.
 ```bash
 date | tee -a file1 file2 file3
 ```
-20. How do you list the hidden files in current directory?
+##### How do you list the hidden files in current directory?
 ```bash
 ls -a | grep '^\.'
 ```
-21. List out some of the Hot Keys available in bash shell?
+##### List out some of the Hot Keys available in bash shell?
 ```bash
 Ctrl+l - Clears the Screen.
 
@@ -124,52 +122,52 @@ Ctrl+d - Kills the shell.
 
 Ctrl+z - Places the currently running process into background.
 ```
-22. How do you make an existing file empty?
+##### How do you make an existing file empty?
 ```bash
 cat /dev/null >  filename
 ```
-23. How do you remove the first number on 10th line in file?
+##### How do you remove the first number on 10th line in file?
 ```bash
 sed '10 s/[0-9][0-9]*//' < filename
 ```
-24. What is the difference between join -v and join -a?
+##### What is the difference between join -v and join -a?
 ```bash
 join -v : outputs only matched lines between two files.
 
 join -a : In addition to the matched lines, this will output unmatched lines also.
 ```
-25. How do you display from the 5th character to the end of the line from a file?
+##### How do you display from the 5th character to the end of the line from a file?
 ```bash
 cut -c 5- filename
 ```
-26. Display all the files in current directory sorted by size?
+##### Display all the files in current directory sorted by size?
 ```bash
 ls -l | grep '^-' | awk '{print $5,$9}' |sort -n|awk '{print $2}'
 ```
-27. Write a command to search for the file 'map' in the current directory?
+##### Write a command to search for the file 'map' in the current directory?
 ```bash
 find -name map -type f
 ```
-28. How to display the first 10 characters from each line of a file?
+##### How to display the first 10 characters from each line of a file?
 ```bash
 cut -c -10 filename
 ```
-29. Write a command to remove the first number on all lines that start with "@"?
+##### Write a command to remove the first number on all lines that start with "@"?
 ```bash
 sed '\,^@, s/[0-9][0-9]*//' < filename
 ```
-30. How to print the file names in a directory that has the word "term"?
+##### How to print the file names in a directory that has the word "term"?
 -   The '-l' option make the grep command to print only the filename without printing the content of the file. As soon 
 as the grep command finds the pattern in a file, it prints the pattern and stops searching other lines in the file.
 ```bash
 grep -l term *
 ```
 
-31. How to run awk command specified in a file?
+##### How to run awk command specified in a file?
 ```bash
 awk -f filename
 ```
-32. How do you display the calendar for the month march in the year 1985?
+##### How do you display the calendar for the month march in the year 1985?
 
 The cal command can be used to display the current month calendar. You can pass the month and year as arguments to display the required year, month combination calendar.
 ```bash
@@ -177,7 +175,7 @@ cal 03 1985
 ```
 This will display the calendar for the March month and year 1985.
 
-33. Write a command to find the total number of lines in a file?
+##### Write a command to find the total number of lines in a file?
 ```bash
 wc -l filename
 ```
@@ -187,11 +185,11 @@ awk 'BEGIN {sum=0} {sum=sum+1} END {print sum}' filename
 
 awk 'END{print NR}' filename
 ```
-34. How to duplicate empty lines in a file?
+##### How to duplicate empty lines in a file?
 ```bash
 sed '/^$/ p' < filename
 ```
-35. Explain iostat, vmstat and netstat?
+##### Explain iostat, vmstat and netstat?
 ```bash
 Iostat: reports on terminal, disk and tape I/O activity.
 
@@ -199,44 +197,44 @@ Vmstat: reports on virtual memory statistics for processes, disk, tape and CPU a
 
 Netstat: reports on the contents of network data structures.
 ```
-36. How do you write the contents of 3 files into a single file?
+##### How do you write the contents of 3 files into a single file?
 ```bash
 cat file1 file2 file3 > file
 ```
-37. How to display the fields in a text file in reverse order?
+##### How to display the fields in a text file in reverse order?
 ```bash
 awk 'BEGIN {ORS=""} { for(i=NF;i>0;i--) print $i," "; print "\n"}' filename
 ```
-38. Write a command to find the sum of bytes (size of file) of all files in a directory.
+##### Write a command to find the sum of bytes (size of file) of all files in a directory.
 ```bash
 ls -l | grep '^-'| awk 'BEGIN {sum=0} {sum = sum + $5} END {print sum}'
 ```
-39. Write a command to print the lines which end with the word "end"?
+##### Write a command to print the lines which end with the word "end"?
 ```bash
 grep 'end$' filename
 ```
 -   The '$' symbol specifies the grep command to search for the pattern at the end of the line.
 
-40. Write a command to select only those lines containing "july" as a whole word?
+##### Write a command to select only those lines containing "july" as a whole word?
 ```bash
 grep -w july filename
 ```
 -   The '-w' option makes the grep command to search for exact whole words. If the specified pattern is found in a 
 string, then it is not considered as a whole word. For example: In the string "mikejulymak", the pattern "july" is found. However "july" is not a whole word in that string.
 
-41. How to remove the first 10 lines from a file?
+##### How to remove the first 10 lines from a file?
 ```bash
 sed '1,10 d' < filename
 ```
-42. Write a command to duplicate each line in a file?
+##### Write a command to duplicate each line in a file?
 ```bash
 sed 'p' < filename
 ```
-43. How to extract the username from 'who am i' comamnd?
+##### How to extract the username from 'who am i' comamnd?
 ```bash
 who am i | cut -f1 -d' '
 ```
-44. Write a command to list the files in '/usr' directory that start with 'ch' and then display the number of lines in each file?
+##### Write a command to list the files in '/usr' directory that start with 'ch' and then display the number of lines in each file?
 ```bash
 wc -l /usr/ch*
 ```
@@ -244,35 +242,35 @@ wc -l /usr/ch*
 ```bash
 find /usr -name 'ch*' -type f -exec wc -l {} \;
 ```
-45. How to remove blank lines in a file ?
+##### How to remove blank lines in a file ?
 ```bash
 grep -v ‘^$’ filename > new_filename
 ```
-46. How to display the processes that were run by your user name ?
+##### How to display the processes that were run by your user name ?
 ```bash
 ps -aef | grep <user_name>
 ```
-47. Write a command to display all the files recursively with path under current directory?
+##### Write a command to display all the files recursively with path under current directory?
 ```bash
 find . -depth -print
 ```
-48. Display zero byte size files in the current directory?
+##### Display zero byte size files in the current directory?
 ```bash
 find -size 0 -type f
 ```
-49. Write a command to display the third and fifth character from each line of a file?
+##### Write a command to display the third and fifth character from each line of a file?
 ```bash
 cut -c 3,5 filename
 ```
-50. Write a command to print the fields from 10th to the end of the line. The fields in the line are delimited by a comma?
+##### Write a command to print the fields from 10th to the end of the line. The fields in the line are delimited by a comma?
 ```bash
 cut -d',' -f10- filename
 ```
-51. How to replace the word "Gun" with "Pen" in the first 100 lines of a file?
+##### How to replace the word "Gun" with "Pen" in the first 100 lines of a file?
 ```bash
 sed '1,00 s/Gun/Pen/' < filename
 ```
-52. Write a Unix command to display the lines in a file that do not contain the word "RAM"?
+##### Write a Unix command to display the lines in a file that do not contain the word "RAM"?
 ```bash
 grep -v RAM filename
 ```
