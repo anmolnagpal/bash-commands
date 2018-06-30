@@ -192,29 +192,29 @@ awk 'END{print NR}' filename
 sed '/^$/ p' < filename
 ```
 35. Explain iostat, vmstat and netstat?
-
+```bash
 Iostat: reports on terminal, disk and tape I/O activity.
 
 Vmstat: reports on virtual memory statistics for processes, disk, tape and CPU activity.
 
 Netstat: reports on the contents of network data structures.
-
+```
 36. How do you write the contents of 3 files into a single file?
-
+```bash
 cat file1 file2 file3 > file
-
+```
 37. How to display the fields in a text file in reverse order?
-
+```bash
 awk 'BEGIN {ORS=""} { for(i=NF;i>0;i--) print $i," "; print "\n"}' filename
-
+```
 38. Write a command to find the sum of bytes (size of file) of all files in a directory.
-
+```bash
 ls -l | grep '^-'| awk 'BEGIN {sum=0} {sum = sum + $5} END {print sum}'
-
+```
 39. Write a command to print the lines which end with the word "end"?
-
+```bash
 grep 'end$' filename
-
+```
 The '$' symbol specifies the grep command to search for the pattern at the end of the line.
 
 40. Write a command to select only those lines containing "july" as a whole word?
