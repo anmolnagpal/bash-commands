@@ -215,12 +215,12 @@ ls -l | grep '^-'| awk 'BEGIN {sum=0} {sum = sum + $5} END {print sum}'
 ```bash
 grep 'end$' filename
 ```
-The '$' symbol specifies the grep command to search for the pattern at the end of the line.
+-   The '$' symbol specifies the grep command to search for the pattern at the end of the line.
 
 40. Write a command to select only those lines containing "july" as a whole word?
-
+```bash
 grep -w july filename
-
+```
 The '-w' option makes the grep command to search for exact whole words. If the specified pattern is found in a string, then it is not considered as a whole word. For example: In the string "mikejulymak", the pattern "july" is found. However "july" is not a whole word in that string.
 
 41. How to remove the first 10 lines from a file?
