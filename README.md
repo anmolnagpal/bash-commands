@@ -484,35 +484,35 @@ fi  done
 ```
 ##### How to print/display the first line of a file?
 ```bash
- head -1 file.txt
+head -1 file.txt
 
- sed '2,$ d' file.txt
+sed '2,$ d' file.txt
 ```
 ##### How to print/display the last line of a file?
 ```bash
- tail -1 file.txt
+tail -1 file.txt
 
- sed -n '$ p' test
+sed -n '$ p' test
 ```
 ##### How to display n-th line of a file?
 ```bash
- sed –n '<n> p' file.txt
+sed –n '<n> p' file.txt
 
- sed –n '4 p' test
+sed –n '4 p' test
 
- head -<n> file.txt | tail -1
+head -<n> file.txt | tail -1
 
- head -4 file.txt | tail -1
+head -4 file.txt | tail -1
 ```
 ##### How to remove the first line / header from a file?
 ```bash
- sed '1 d' file.txt
+sed '1 d' file.txt
 
- sed '1 d' file.txt > new_file.txt
+sed '1 d' file.txt > new_file.txt
 
- mv new_file.txt file.txt
+mv new_file.txt file.txt
 
- sed –i '1 d' file.txt
+sed –i '1 d' file.txt
 ```
 ##### How to remove the last line/ trailer from a file in Unix script?
 ```bash
@@ -520,29 +520,29 @@ sed –i '$ d' file.txt
 ```
 ##### How to remove certain lines from a file in Unix?
 ```bash
- sed –i '5,7 d' file.txt
+sed –i '5,7 d' file.txt
 ```
 ##### How to remove the last n-th line from a file?
 ```bash
- sed –i '96,100 d' file.txt   # alternative to command [head -95 file.txt]
+sed –i '96,100 d' file.txt   # alternative to command [head -95 file.txt]
 
- tt=`wc -l file.txt | cut -f1 -d' '`;sed –i "`expr $tt - 4`,$tt d" test
+tt=`wc -l file.txt | cut -f1 -d' '`;sed –i "`expr $tt - 4`,$tt d" test
 ```
 ##### How to check the length of any line in a file?
 ```bash
- sed –n '<n> p' file.txt
+sed –n '<n> p' file.txt
 
- sed –n '35 p' file.txt | wc –c
+sed –n '35 p' file.txt | wc –c
 ```
 ##### How to check if a file is present in a particular directory in Unix?
 ```bash
- ls –l file.txt; echo $?
+ls –l file.txt; echo $?
 ```
 ##### How to check all the running processes in Unix?
 ```bash
- ps –ef
+ps –ef
 
- ps aux
+ps aux
 
 ps -e -o stime,user,pid,args,%mem,%cpu
 
