@@ -235,7 +235,7 @@ sed 'p' < filename
 ```
 ##### How to extract the username from 'who am i' comamnd?
 ```bash
-who am i | cut -f1 -d' '
+whoami
 ```
 ##### Write a command to list the files in '/usr' directory that start with 'ch' and then display the number of lines in each file?
 ```bash
