@@ -400,75 +400,77 @@ grep -i july *
 -   The option i make the grep command to treat the pattern as case insensitive.
 
 80. When you use a single file as input to the grep command to search for a pattern, it won't print the filename in the output. Now write a grep command to print the filename in the output without using the '-H' option.
-
+```bash
 grep pattern filename /dev/null
+```
+-   The /dev/null or null device is special file that discards the data written to it. So, the /dev/null is always an 
+empty file.
 
-The /dev/null or null device is special file that discards the data written to it. So, the /dev/null is always an empty file.
-
-Another way to print the filename is using the '-H' option. The grep command for this is
-
+-   Another way to print the filename is using the '-H' option. The grep command for this is
+```bash
 grep -H pattern filename
-
+```
 81. Write a command to print the file names in a directory that does not contain the word "july"?
-
+```bash
 grep -L july *
-
-The '-L' option makes the grep command to print the filenames that do not contain the specified pattern.
+```
+-   The ``` bash'-L' ``` option makes the grep command to print the filenames that do not contain the specified 
+pattern.
 
 82. Write a command to print the line numbers along with the line that has the word "july"?
-
+```bash
 grep -n july filename
-
-The '-n' option is used to print the line numbers in a file. The line numbers start from 1
+```
+The ```bash'-n'``` option is used to print the line numbers in a file. The line numbers start from 1
 
 83. Write a command to print the lines that starts with the word "start"?
-
+```bash
 grep '^start' filename
-
-The '^' symbol specifies the grep command to search for the pattern at the start of the line.
+```
+The ```bash'^'``` symbol specifies the grep command to search for the pattern at the start of the line.
 
 84. In the text file, some lines are delimited by colon and some are delimited by space. Write a command to print the third field of each line.
-
+```bash
 awk '{ if( $0 ~ /:/ ) { FS=":"; } else { FS =" "; } print $3 }' filename
-
+```
 85. Write a command to print the line number before each line?
-
+```bash
 awk '{print NR, $0}' filename
-
+```
 86. Write a command to print the second and third line of a file without using NR.
-
+```bash
 awk 'BEGIN {RS="";FS="\n"} {print $2,$3}' filename
-
+```
 87. How to create an alias for the complex command and remove the alias?
 
-The alias utility is used to create the alias for a command. The below command creates alias for ps -aef command.
-
+-   The alias utility is used to create the alias for a command. The below command creates alias for ps -aef command.
+```bash
 alias pg='ps -aef'
+```
+-   If you use pg, it will work the same way as ps -aef.
 
-If you use pg, it will work the same way as ps -aef.
-
-To remove the alias simply use the unalias command as
-
+-   To remove the alias simply use the unalias command as
+```bash
 unalias pg
-
+```
 88. Write a command to display todays date in the format of 'yyyy-mm-dd'?
 
-The date command can be used to display todays date with time
-
+-   The date command can be used to display todays date with time
+```bash
 date '+%Y-%m-%d'
-
+```
 89.For LOOP
 
 1. Rename all ".old" files in the current directory to ".bak":
-
+```bash
 for i in *.old   do  j=`echo $i|sed 's/old/bak/'`  mv $i $j  done
-
+```
 2. Change all instances of "yes" to "no" in all ".txt" files in the current directory. Back up the original files to ".bak".
-
+```bash
 for i in *.txt do  j=`echo $i|sed 's/txt/bak/'`  mv $i $j   sed 's/yes/no/' $j > $i  done
-
+```
 3. Loop thru a text file containing possible file names. If the file is readable, print the first line, otherwise print an error message:
-
+```bash
 for i in `cat file_list.txt` do  if test -r $i   
 
   then        
@@ -479,22 +481,23 @@ for i in `cat file_list.txt` do  if test -r $i
 
 else
 
-echo "file $i cannot be open for reading."      fi  done
-
+echo "file $i cannot be open for reading."      
+fi  done
+```
 How to print/display the first line of a file?
-
+```bash
 $> head -1 file.txt
 
 $> sed '2,$ d' file.txt
-
+```
 How to print/display the last line of a file?
-
+```bash
 $> tail -1 file.txt
 
 $> sed -n '$ p' test
-
+```
 How to display n-th line of a file?
-
+```bash
 $> sed –n '<n> p' file.txt
 
 $> sed –n '4 p' test
@@ -502,9 +505,9 @@ $> sed –n '4 p' test
 $> head -<n> file.txt | tail -1
 
 $> head -4 file.txt | tail -1
-
+```
 How to remove the first line / header from a file?
-
+```bash
 $> sed '1 d' file.txt
 
 $> sed '1 d' file.txt > new_file.txt
@@ -512,33 +515,33 @@ $> sed '1 d' file.txt > new_file.txt
 $> mv new_file.txt file.txt
 
 $> sed –i '1 d' file.txt
-
+```
 How to remove the last line/ trailer from a file in Unix script?
-
+```bash
 $> sed –i '$ d' file.txt
-
+```
 How to remove certain lines from a file in Unix?
-
+```bash
 $> sed –i '5,7 d' file.txt
-
+```
 How to remove the last n-th line from a file?
-
+```bash
 $> sed –i '96,100 d' file.txt   # alternative to command [head -95 file.txt]
 
 $> tt=`wc -l file.txt | cut -f1 -d' '`;sed –i "`expr $tt - 4`,$tt d" test
-
+```
 How to check the length of any line in a file?
-
+```bash
 $> sed –n '<n> p' file.txt
 
 $> sed –n '35 p' file.txt | wc –c
-
+```
 How to check if a file is present in a particular directory in Unix?
-
+```bash
 $> ls –l file.txt; echo $?
-
+```
 How to check all the running processes in Unix?
-
+```bash
 $> ps –ef
 
 $> ps aux
@@ -560,111 +563,114 @@ WHERE RN = CNT
 START WITH RN = 1
 
 CONNECT BY RN = PRIOR RN + 1;
-
+```
 What is command to check space in Unix
-
+```bash
 df -k
-
+```
 What is command to kill last background Job
-
+```bash
 kill $!
-
+```
 What is difference between diff and cmp command
-
+```bash
 cmp -It compares two files byte by byte and displays first mismatch.
 
 diff -It displays all changes required to make files identical.
-
+```
+```text
 What does $# stands for
 
 It will return the number of parameters passed as command line argument.Unix Commands
+```
 
 Commonly used UNIX Commands!!
 
 1.How to display the 10th line of a file?
-
+```bash
 head -10 filename | tail -1
-
+```
 2. How to remove the header from a file?
-
+```bash
 sed -i '1 d' filename
-
+```
 3. How to remove the footer from a file?
-
+```bash
 sed -i '$ d' filename
-
+```
 4. Write a command to find the length of a line in a file?
 
 The below command can be used to get a line from a file.
-
+```bash
 sed –n '<n> p' filename
-
+```
 We will see how to find the length of 10th line in a file
-
+```bash
 sed -n '10 p' filename|wc -c
-
+```
 5. How to get the nth word of a line in Unix?
-
+```bash
 cut –f<n> -d' '
-
+```
 6. How to reverse a string in unix?
-
+```bash
 echo "java" | rev
-
+```
 7. How to get the last word from a line in Unix file?
-
+```bash
 echo "unix is good" | rev | cut -f1 -d' ' | rev
-
+```
 8. How to replace the n-th line in a file with a new line in Unix?
-
+```bash
 sed -i'' '10 d' filename       # d stands for delete
 
 sed -i'' '10 i new inserted line' filename     # i stands for insert
-
+```
 9. How to check if the last command was successful in Unix?
-
+```bash
 echo $?
-
+```
 10. Write command to list all the links from a directory?
-
+```bash
 ls -lrt | grep "^l"
-
+```
 11. How will you find which operating system your system is running on in UNIX?
-
+```bash
 uname -a
-
+```
 12. Create a read-only file in your home directory?
-
+```bash
 touch file; chmod 400 file
-
+```
 13. How do you see command line history in UNIX?
 
-The 'history' command can be used to get the list of commands that we are executed.
+The ```bash'history'``` command can be used to get the list of commands that we are executed.
 
 14. How to display the first 20 lines of a file?
 
-By default, the head command displays the first 10 lines from a file. If we change the option of head, then we can display as many lines as we want.
-
+-   By default, the head command displays the first 10 lines from a file. If we change the option of head, then we can 
+display as many lines as we want.
+```bash
 head -20 filename
-
-An alternative solution is using the sed command
-
+```
+-   An alternative solution is using the sed command
+```bash
 sed '21,$ d' filename
-
-The d option here deletes the lines from 21 to the end of the file
+```
+-   The d option here deletes the lines from 21 to the end of the file
 
 15. Write a command to print the last line of a file?
 
-The tail command can be used to display the last lines from a file.
-
+-   The tail command can be used to display the last lines from a file.
+```bash
 tail -1 filename
-
+```
 Alternative solutions are:
-
+```bash
 sed -n '$ p' filename
 
 awk 'END{print $0}' filename
-
+```
 16. How do you rename the files in a directory with _new as suffix?
 
 ls -lrt|grep '^-'| awk '{print "mv "$9" "$9".new"}' | sh
