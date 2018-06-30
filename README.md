@@ -3,113 +3,113 @@ Unix Commands
 Commonly used UNIX Commands!!
 
 1.How to display the 10th line of a file?
-
+```bash
 head -10 filename | tail -1
-
+```
 2. How to remove the header from a file?
-
+```bash
 sed -i '1 d' filename
-
+```
 3. How to remove the footer from a file?
-
+```bash
 sed -i '$ d' filename
-
+```
 4. Write a command to find the length of a line in a file?
 
 The below command can be used to get a line from a file.
-
+```bash
 sed –n '<n> p' filename
-
+```
 We will see how to find the length of 10th line in a file
-
+```bash
 sed -n '10 p' filename|wc -c
-
+```
 5. How to get the nth word of a line in Unix?
-
+```bash
 cut –f<n> -d' '
-
+```
 6. How to reverse a string in unix?
-
+```bash
 echo "java" | rev
-
+```
 7. How to get the last word from a line in Unix file?
-
+```bash
 echo "unix is good" | rev | cut -f1 -d' ' | rev
-
+```
 8. How to replace the n-th line in a file with a new line in Unix?
-
+```bash
 sed -i'' '10 d' filename       # d stands for delete
 
 sed -i'' '10 i new inserted line' filename     # i stands for insert
-
+```
 9. How to check if the last command was successful in Unix?
-
+```bash
 echo $?
-
+```
 10. Write command to list all the links from a directory?
-
+```bash
 ls -lrt | grep "^l"
-
+```
 11. How will you find which operating system your system is running on in UNIX?
-
+```bash
 uname -a
-
+```
 12. Create a read-only file in your home directory?
-
+```bash
 touch file; chmod 400 file
-
+```
 13. How do you see command line history in UNIX?
-
+```bash
 The 'history' command can be used to get the list of commands that we are executed.
-
+```
 14. How to display the first 20 lines of a file?
 
 By default, the head command displays the first 10 lines from a file. If we change the option of head, then we can display as many lines as we want.
-
+```bash
 head -20 filename
-
-An alternative solution is using the sed command
-
+```
+-   An alternative solution is using the sed command
+```bash
 sed '21,$ d' filename
-
-The d option here deletes the lines from 21 to the end of the file
+```
+-   The d option here deletes the lines from 21 to the end of the file
 
 15. Write a command to print the last line of a file?
 
 The tail command can be used to display the last lines from a file.
-
+```bash
 tail -1 filename
-
-Alternative solutions are:
-
+```
+-   Alternative solutions are:
+```bash
 sed -n '$ p' filename
 
 awk 'END{print $0}' filename
-
+```
 16. How do you rename the files in a directory with _new as suffix?
-
+```bash
 ls -lrt|grep '^-'| awk '{print "mv "$9" "$9".new"}' | sh
-
+```
 17. Write a command to convert a string from lower case to upper case?
-
+```bash
 echo "apple" | tr [a-z] [A-Z]
-
+```
 18. Write a command to convert a string to Initcap.
-
+```bash
 echo apple | awk '{print toupper(substr($1,1,1)) tolower(substr($1,2))}'
-
+```
 19. Write a command to redirect the output of date command to multiple files?
 
-The tee command writes the output to multiple files and also displays the output on the terminal.
-
+-   The tee command writes the output to multiple files and also displays the output on the terminal.
+```bash
 date | tee -a file1 file2 file3
-
+```
 20. How do you list the hidden files in current directory?
-
+```bash
 ls -a | grep '^\.'
-
+```
 21. List out some of the Hot Keys available in bash shell?
-
+```bash
 Ctrl+l - Clears the Screen.
 
 Ctrl+r - Does a search in previously given commands in shell.
@@ -123,73 +123,74 @@ Ctrl+e - Places cursor at the end of the command at shell.
 Ctrl+d - Kills the shell.
 
 Ctrl+z - Places the currently running process into background.
-
+```
 22. How do you make an existing file empty?
-
+```bash
 cat /dev/null >  filename
-
+```
 23. How do you remove the first number on 10th line in file?
-
+```bash
 sed '10 s/[0-9][0-9]*//' < filename
-
+```
 24. What is the difference between join -v and join -a?
-
+```bash
 join -v : outputs only matched lines between two files.
 
 join -a : In addition to the matched lines, this will output unmatched lines also.
-
+```
 25. How do you display from the 5th character to the end of the line from a file?
-
+```bash
 cut -c 5- filename
-
+```
 26. Display all the files in current directory sorted by size?
-
+```bash
 ls -l | grep '^-' | awk '{print $5,$9}' |sort -n|awk '{print $2}'
-
+```
 27. Write a command to search for the file 'map' in the current directory?
-
+```bash
 find -name map -type f
-
+```
 28. How to display the first 10 characters from each line of a file?
-
+```bash
 cut -c -10 filename
-
+```
 29. Write a command to remove the first number on all lines that start with "@"?
-
+```bash
 sed '\,^@, s/[0-9][0-9]*//' < filename
-
+```
 30. How to print the file names in a directory that has the word "term"?
-
+-   The '-l' option make the grep command to print only the filename without printing the content of the file. As soon 
+as the grep command finds the pattern in a file, it prints the pattern and stops searching other lines in the file.
+```bash
 grep -l term *
-
-The '-l' option make the grep command to print only the filename without printing the content of the file. As soon as the grep command finds the pattern in a file, it prints the pattern and stops searching other lines in the file.
+```
 
 31. How to run awk command specified in a file?
-
+```bash
 awk -f filename
-
+```
 32. How do you display the calendar for the month march in the year 1985?
 
 The cal command can be used to display the current month calendar. You can pass the month and year as arguments to display the required year, month combination calendar.
-
+```bash
 cal 03 1985
-
+```
 This will display the calendar for the March month and year 1985.
 
 33. Write a command to find the total number of lines in a file?
-
+```bash
 wc -l filename
-
-Other ways to pring the total number of lines are
-
+```
+-   Other ways to pring the total number of lines are
+```bash
 awk 'BEGIN {sum=0} {sum=sum+1} END {print sum}' filename
 
 awk 'END{print NR}' filename
-
+```
 34. How to duplicate empty lines in a file?
-
+```bash
 sed '/^$/ p' < filename
-
+```
 35. Explain iostat, vmstat and netstat?
 
 Iostat: reports on terminal, disk and tape I/O activity.
