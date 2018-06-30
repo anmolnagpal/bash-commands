@@ -1,8 +1,6 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/4303310/42126873-cbb93eea-7c9f-11e8-893a-7d20ff59d60e.png" /></p>
 
-> Commonly used UNIX Commands!!
-
-
+> Learning command line tools for managing the file system in Bash or alternative shells like, Zsh, can give you more speed and control over your workflow. 
 
 ##### How to display the 10th line of a file?
 ```bash
